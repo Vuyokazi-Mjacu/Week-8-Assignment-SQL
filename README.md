@@ -7,47 +7,15 @@
 This project is a combination of two systems:
 1. **Library Management System**: This manages a library with books, patrons, and checkouts. The system keeps track of who borrowed which books, the available books, and more.
 2. **Task Management System**: This allows users to create and manage tasks. It tracks task progress, assignees, deadlines, and completion status.
+![image](https://github.com/user-attachments/assets/c03485d8-a3c3-4242-9cb5-38f8f66c7a7f)
 
-### How to run/setup:
+
 
 #### For Library Management System:
 1. Open the `library_management.sql` file in MySQL Workbench or any MySQL client.
 2. Run the SQL script to set up the database and tables.
 -- Library Management System
 
--- Create database
-CREATE DATABASE LibraryDB;
-
--- Use the created database
-USE LibraryDB;
-
--- Create table for Books
-CREATE TABLE Books (
-    book_id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    author VARCHAR(255),
-    isbn VARCHAR(13) UNIQUE,
-    available_copies INT DEFAULT 0
-);
-
--- Create table for Patrons (Library members)
-CREATE TABLE Patrons (
-    patron_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(255) NOT NULL,
-    last_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL
-);
-
--- Create table for Book Checkouts
-CREATE TABLE Checkouts (
-    checkout_id INT AUTO_INCREMENT PRIMARY KEY,
-    book_id INT,
-    patron_id INT,
-    checkout_date DATE,
-    return_date DATE,
-    FOREIGN KEY (book_id) REFERENCES Books(book_id),
-    FOREIGN KEY (patron_id) REFERENCES Patrons(patron_id)
-);
 
 #### For Task Management System:
 1. Install dependencies for the task manager API by running:
@@ -56,6 +24,6 @@ CREATE TABLE Checkouts (
 
 ### ERD (Entity Relationship Diagram)
 
-You can view or download the ERD diagram here:http://127.0.0.1:8000/docs [[ERD Link or Screenshot]]
+You can view or download the ERD diagram here:http://127.0.0.1:8000/docs 
 ![image](https://github.com/user-attachments/assets/126338ba-a9f7-45b8-bf37-7be3417f88f8)
 
